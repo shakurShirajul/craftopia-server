@@ -1,38 +1,38 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 const itemSchema = new mongoose.Schema({
-    image:{
+    image: {
         type: String,
         required: true,
     },
-    item_name:{
+    item_name: {
         type: String,
         required: true,
     },
-    subcategory_name:{
+    subcategory_name: {
         type: String,
         required: true,
     },
-    short_descriptiondragon:{
+    short_descriptiondragon: {
         type: String,
         required: true,
     },
-    price:{
+    price: {
         type: Number,
         required: true,
     },
-    rating:{
+    rating: {
         type: Number,
         required: true,
     },
-    customization:{
+    customization: {
         type: String,
         required: true,
     },
-    processing_time:{
+    processing_time: {
         type: String,
         required: true,
     }
 })
 
-export const Items = mongoose.model
+export const Items = mongoose.model("craftItems", itemSchema);
