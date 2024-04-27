@@ -13,7 +13,7 @@ const itemSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    short_descriptiondragon: {
+    short_description: {
         type: String,
         required: true,
     },
