@@ -32,6 +32,18 @@ const itemSchema = new mongoose.Schema({
     processing_time: {
         type: String,
         required: true,
+    },
+    stock: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    userName: {
+        type: String,
+        required: true,
     }
 })
 

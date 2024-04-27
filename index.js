@@ -26,20 +26,34 @@ app.get('/item/:id', async (req, res) => {
     console.log(craftItemData);
 })
 app.post('/add-item', async (req, res) => {
-    const {
-        displayName,
-        email,
-        imageURL,
-        itemName,
-        subcategory,
-        customization,
-        stock,
-        price,
-        itemRating,
-        processingTime,
-        description
-    } = req.body
+    // const {
+    //     userName,
+    //     email,
+    //     image,
+    //     itemName,
+    //     subcategory,
+    //     customization,
+    //     stock,
+    //     price,
+    //     rating,
+    //     processingTime,
+    //     description
+    // } = req.body
     console.log(req.body);
+    // const insertItem = await Items.create(req.body);
+    // console.log(insertItem);
+    // console.log(req.body);
+    res.status(201).json({
+        success: true,
+    })
+})
+
+app.delete('/item/:id', async(req, res) => {
+    const id = req.params.id;
+    console.log(id);
+    const query = { _id: new ObjectId(id) }
+    const result = await Items.deleteOne(query);
+    res.send(result);
 })
 
 app.listen(port, () => {
