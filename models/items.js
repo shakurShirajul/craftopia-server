@@ -18,11 +18,11 @@ const itemSchema = new mongoose.Schema({
         required: true,
     },
     price: {
-        type: Number,
+        type: String,
         required: true,
     },
     rating: {
-        type: Number,
+        type: String,
         required: true,
     },
     customization: {
@@ -39,11 +39,11 @@ const itemSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true,
+        // required: true,
     },
     userName: {
         type: String,
-        required: true,
+        // required: true,
     }
 })
 

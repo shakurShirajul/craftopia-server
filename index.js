@@ -13,7 +13,9 @@ database();
 app.use(cors());
 app.use(express.json());
 
-
+app.get('/',(req,res)=>{
+    res.send("Hi Beautiful People");
+})
 
 app.get('/items', async (req, res) => {
     const artCraftItems = await Items.find({});
@@ -26,33 +28,27 @@ app.get('/item/:id', async (req, res) => {
     console.log(craftItemData);
 })
 app.post('/add-item', async (req, res) => {
-    // const {
-    //     userName,
-    //     email,
-    //     image,
-    //     itemName,
-    //     subcategory,
-    //     customization,
-    //     stock,
-    //     price,
-    //     rating,
-    //     processingTime,
-    //     description
-    // } = req.body
     console.log(req.body);
-    // const insertItem = await Items.create(req.body);
-    // console.log(insertItem);
-    // console.log(req.body);
+    const insertItem = await Items.create(req.body);
+    console.log(insertItem);
+    console.log(req.body);
     res.status(201).json({
         success: true,
     })
 })
 
-app.delete('/item/:id', async(req, res) => {
+app.delete('/item/:id', async (req, res) => {
     const id = req.params.id;
-    console.log(id);
     const query = { _id: new ObjectId(id) }
     const result = await Items.deleteOne(query);
+    res.send(result);
+})
+
+app.put('/itemupdate/:id', async (req, res) => {
+    const id = req.params.id;
+    const query = { _id: new ObjectId(id) }
+    const updateItem = req.body;
+    const result = await Items.updateOne(query, { $set: updateItem });
     res.send(result);
 })
 
