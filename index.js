@@ -3,6 +3,7 @@ import cors from "cors";
 import { database } from "./database/mongodb.js";
 import { Items } from "./models/items.js";
 import { ObjectId } from "mongodb";
+import { Review } from "./models/review.js";
 
 const app = express();
 
@@ -15,6 +16,11 @@ app.use(express.json());
 
 app.get('/',(req,res)=>{
     res.send("Hi Beautiful People");
+})
+
+app.get('/reviews', async(req,res)=>{
+    const reviews = await Review.find({});
+    res.send(reviews);
 })
 
 app.get('/items', async (req, res) => {
