@@ -4,6 +4,7 @@ import { database } from "./database/mongodb.js";
 import { Items } from "./models/items.js";
 import { ObjectId } from "mongodb";
 import { Review } from "./models/review.js";
+import { Subcategory } from "./models/subcategory.js";
 
 const app = express();
 
@@ -21,6 +22,11 @@ app.get('/',(req,res)=>{
 app.get('/reviews', async(req,res)=>{
     const reviews = await Review.find({});
     res.send(reviews);
+})
+
+app.get('/subcategory/items', async(req,res)=>{
+    const subcategoryItems = await Subcategory.find({});
+    res.send(subcategoryItems);
 })
 
 app.get('/items', async (req, res) => {
