@@ -32,13 +32,7 @@ const subcategorySchema = new mongoose.Schema({
     processing_time: {
         type: String,
         required: true,
-    },
-    email: {
-        type: String,
-    },
-    userName: {
-        type: String,
     }
 })
 
-export const Subcategory = mongoose.model("subcategory", subcategorySchema);
+export const Subcategory = mongoose.model("subcategories", subcategorySchema);
